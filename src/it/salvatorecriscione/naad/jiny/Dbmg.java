@@ -26,6 +26,8 @@ public class Dbmg {
 			it.salvatorecriscione.naad.debug.Error.error(e.toString());
 			return;
 		}
+		
+		executeQuery("FLUSH ip");
 	}
 	
 	public int executeQuery(String query)

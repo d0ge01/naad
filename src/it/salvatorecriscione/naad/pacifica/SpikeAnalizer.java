@@ -11,6 +11,9 @@ public class SpikeAnalizer {
 	
 	public boolean test(double value1, double value2)
 	{
+		if ( value1 == 0 )
+			return true;
+		
 		if ( value2 > value1 + toll )
 			return true;
 		else

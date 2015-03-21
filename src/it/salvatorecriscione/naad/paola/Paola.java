@@ -22,9 +22,9 @@ public class Paola {
 		enableLocalProtection = enablelocal;
 	}
 	
-	public Paola(Dbmg culo)
+	public Paola(Dbmg dbx)
 	{
-		db = culo;
+		db = dbx;
 	}
 	
 	public void collect(Vector<PacketIP> l)
@@ -45,6 +45,8 @@ public class Paola {
 					dest.add(p.DestIP());
 					destBuff.add(p.DestIP());
 				}
+			
+			
 		}
 		
 		Debug.print("Mittenti:");
@@ -58,7 +60,7 @@ public class Paola {
 			buff = buff + "(NULL, '"+ mittBuff.get(i) + "')";
 			buff = i != tot - 1 ? buff + "," : buff;
 		}
-		db.executeQuery("INSERT INTO mittenti VALUES " + buff + ";");
+		db.executeQuery("INSERT INTO ip VALUES " + buff + ";");
 		Debug.print("Destinatari:");
 		
 		tot = destBuff.size();
@@ -69,7 +71,7 @@ public class Paola {
 			buff = buff + "(NULL, '"+ destBuff.get(i) + "')";
 			buff = i != tot - 1 ? buff + "," : buff;
 		}
-		db.executeQuery("INSERT INTO destinatari VALUES " + buff + ";");
+		db.executeQuery("INSERT INTO ip VALUES " + buff + ";");
 		Debug.print("Inserite le informazioni nel db");
 		mittBuff.clear();
 		destBuff.clear();
